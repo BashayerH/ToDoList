@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">To Do List</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list">list</string>
+    <string name="add_list">add list</string>
+    <string name="quts">some wooooords</string>
+    <string name="helloText">To Do List</string>
+</resources>
