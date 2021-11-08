@@ -7,6 +7,10 @@
     tools:context=".theListFragment" >
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listRcView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="16sp"
+        android:padding="16sp"
+        android:paddingTop="10sp" />
 </LinearLayout>

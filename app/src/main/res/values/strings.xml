@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">To Do List</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="list">list</string>
+    <string name="list">show me my list</string>
     <string name="add_list">add list</string>
     <string name="quts">some wooooords</string>
     <string name="helloText">To Do List</string>
+    <string name="add_the_note">add the note here</string>
+    <string name="what_do_you_want_to_do">what do you want to do</string>
+    <string name="date">Date</string>
+    <string name="added_to_list">added to list</string>
+    <string name="descerption">descerption</string>
+    <string name="done">Done</string>
 </resources>

@@ -15,7 +15,7 @@ import com.example.todolist.theList.theListFragment
 
 class StartFragment : Fragment() {
 
-val startFragmentViewModel by lazy { ViewModelProvider(this).get(StartFragmentViewModel::class.java) }
+
     private lateinit var addLBTN:Button
     private lateinit var listBTN:Button
 
