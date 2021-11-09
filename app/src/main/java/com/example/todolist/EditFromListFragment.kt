@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import com.example.todolist.Database.ToDoData
@@ -28,6 +29,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
     private lateinit var editBTn: Button
     private lateinit var deleteBtn: Button
     private lateinit var editDate: Button
+    private lateinit var isDone: CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +42,10 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
         editBTn = view.findViewById(R.id.editBTn)
         deleteBtn = view.findViewById(R.id.deleteBtn)
         editDate = view.findViewById(R.id.startDate)
+        isDone=view.findViewById(R.id.isDone)
 
         editDate.apply {
-            text=note.date.time.toString()//whaaaay
+            text= note.date.time.toString()//whaaaay
       }
 
 
@@ -75,6 +78,19 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
             datePicker.show(this.parentFragmentManager, "date picker")
         }
 
+        editBTn.setOnClickListener{
+            editFragmentVm.addtodo(note)
+            val fragment= theListFragment()
+            activity?.let {
+                it.supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerView, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+
+        }
+
         val textWatcher=object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -94,7 +110,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
         editTitle.addTextChangedListener(textWatcher)
         editDescr.addTextChangedListener(textWatcher)
-       //isDone.setOnCheckedChangeListener { _, isChecked ->note.isDone=isChecked  }
+       isDone.setOnCheckedChangeListener { _, isChecked ->note.isDone=isChecked  }
 
 
    }
@@ -108,8 +124,8 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
                     note=it
                     editTitle.setText(it.textedit)
                     editDescr.setText(it.description)
-                    editDate.text=it.date.toString()
-                  //  isDone.isChecked= it.isDone
+                    editDate.text= it.date.time.toString()
+                   isDone.isChecked= it.isDone
 
                 }
             }

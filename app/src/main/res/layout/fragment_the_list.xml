@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4EEEE"
+    android:backgroundTint="#F8F4F4"
     android:orientation="vertical"
-    tools:context=".theListFragment" >
+    tools:context=".theListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listRcView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16sp"
+        android:background="#F8F4F4"
         android:padding="16sp"
         android:paddingTop="10sp" />
 </LinearLayout>

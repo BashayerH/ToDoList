@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10sp"
-    android:background="#EAE2E2"
+    android:background="@drawable/bg_corner"
     android:backgroundTint="#B87F89"
     android:padding="10sp">
 
@@ -14,36 +14,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
-        android:textColor="#572830"
-        android:textSize="16sp"
+        android:textColor="#C9C5BA"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descrep_item"
-        android:layout_width="237dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="163dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
-        android:textColor="#572830"
-        android:textSize="16sp"
+        android:textColor="#C9C5BA"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/is_Done_item"
-        android:layout_width="59dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="386dp"
+        android:layout_height="127dp"
+        android:background="#79100F0F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349"
-        app:srcCompat="@drawable/done" />
+        app:srcCompat="@drawable/shadow" />
+
+    <Button
+        android:id="@+id/date_for_list"
+        android:layout_width="131dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#36572830"
+        android:text="date"
+        android:textColor="#C9C5BA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

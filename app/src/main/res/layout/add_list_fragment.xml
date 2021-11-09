@@ -6,94 +6,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E4DA"
-    android:backgroundTint="#F8E2E4"
+    android:backgroundTint="#F8F4F4"
     android:orientation="vertical"
     tools:context=".addList.AddListFragment">
 
     <TextView
         android:id="@+id/addNote"
-        android:layout_width="254dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:background="#EEF3F4"
-        android:backgroundTint="#F9E2E4"
+        android:backgroundTint="#F8F4F4"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="@string/add_the_note"
         android:textAlignment="center"
-        android:textColor="#592630"
-        android:textSize="24sp"
+        android:textColor="#407076"
+        android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editeNote"
-        android:layout_width="278dp"
-        android:layout_height="116dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="369dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="100dp"
         android:backgroundTint="#F6EDED"
         android:ems="10"
         android:fontFamily="@font/architects_daughter_regular"
         android:hint="@string/what_do_you_want_to_do"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColor="#572830"
+        android:textColor="#407076"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/isDone"
-        app:layout_constraintTop_toBottomOf="@+id/addNote" />
-
-    <Button
-        android:id="@+id/dateBTN"
-        android:layout_width="166dp"
-        android:layout_height="71dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="232dp"
-        android:backgroundTint="#E0515C"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:text="@string/date"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/addToList"
-        android:layout_width="0dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="232dp"
-        android:backgroundTint="#E0515C"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:text="@string/added_to_list"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/isDone"
-        android:layout_width="266dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="368dp"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:text="isDone"
-        android:textAlignment="center"
-        android:textColor="#582730"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/descrItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="372dp"
+        android:layout_height="189dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
+        android:fontFamily="@font/architects_daughter_regular"
+        android:hint="description"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:textColor="#407076"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="411dp"
+        android:layout_height="313dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/add_list_corner"
+        android:backgroundTint="#F8F4F4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/addToList"
+            android:layout_width="201dp"
+            android:layout_height="135dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/add_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/dateBTN"
+            android:layout_width="142dp"
+            android:layout_height="126dp"
+            android:layout_marginStart="44dp"
+            android:src="@drawable/date_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.475" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

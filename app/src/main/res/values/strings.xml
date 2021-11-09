@@ -2,13 +2,13 @@
     <string name="app_name">To Do List</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="list">show me my list</string>
-    <string name="add_list">add list</string>
+    <string name="add_list">add</string>
     <string name="quts">some wooooords</string>
     <string name="helloText">To Do List</string>
-    <string name="add_the_note">add the note here</string>
+    <string name="add_the_note">What next?</string>
     <string name="what_do_you_want_to_do">what do you want to do</string>
     <string name="date">Set a Date</string>
-    <string name="added_to_list">added to list</string>
+    <string name="added_to_list">add</string>
     <string name="done">Done</string>
     <string name="delete">DELETE</string>
     <string name="title">title</string>

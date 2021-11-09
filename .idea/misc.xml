@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/add_list_corner.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/drawable/bg_corner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/btn_corner.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/drawable/image_border.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/font/allan.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/font/amatica_sc.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/font/annie_use_your_telescope.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/add_list_fragment.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/edit_from_list_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/add_list_fragment.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/edit_from_list_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_the_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/the_list_item.xml" value="0.335" />

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
 import com.example.todolist.DataPickerFragment
 import com.example.todolist.Database.ToDoData
 import com.example.todolist.R
@@ -27,9 +28,8 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
     private lateinit var textEdit:EditText
     private lateinit var descreptionEdit:EditText
-    private lateinit var isDone:CheckBox
-    private lateinit var dateBTn:Button
-    private lateinit var adeddBTn:Button
+    private lateinit var dateBTn:ImageView
+    private lateinit var adeddBTn:ImageView
 
 
     override fun onCreateView(
@@ -40,7 +40,6 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
         textEdit=view.findViewById(R.id.editeNote)
         descreptionEdit=view.findViewById(R.id.descrItem)
-        isDone=view.findViewById(R.id.isDone)
         dateBTn=view.findViewById(R.id.dateBTN)
         adeddBTn=view.findViewById(R.id.addToList)
 
@@ -89,8 +88,10 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
         }
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            note.textedit= p0.toString()
+            note.textedit= p0.toString()//howww
+            note.description=p0.toString()
         }
+
 
         override fun afterTextChanged(p0: Editable?) {
 
@@ -99,7 +100,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
     }
         textEdit.addTextChangedListener(textWatcher)
        descreptionEdit.addTextChangedListener(textWatcher)
-        isDone.setOnCheckedChangeListener { _, isChecked ->note.isDone=isChecked  }
+
 
 
     }
@@ -125,9 +126,9 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
                 it?.let {
                     note=it
                     textEdit.setText(it.textedit)
-                    descreptionEdit.setText(it.textedit)
-                    dateBTn.text=it.date.toString()
-                    isDone.isChecked= it.isDone
+                    descreptionEdit.setText(it.description)
+                    dateBTn.visibility= it.date.time.toInt()
+
 
                 }
             }
@@ -138,7 +139,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
     override fun onDateSelected(date: Date) {
         note.date=date
-        dateBTn.text=date.toString()
+        dateBTn.visibility=date.time.toInt()
     }
 
     override fun onStop() {

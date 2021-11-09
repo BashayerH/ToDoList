@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
@@ -61,13 +62,15 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
         private var titleList:TextView=itemView.findViewById(R.id.title_item)
         private var isDoneImg:ImageView=itemView.findViewById(R.id.is_Done_item)
         private var descriptioItem:TextView=itemView.findViewById(R.id.descrep_item)
+        private var dateList:Button =itemView.findViewById(R.id.date_for_list)
+
        private lateinit var note:ToDoData
 //هنا عندي مشكلة بطريقة عرض البيانات
        fun bind(note:ToDoData){
            this.note=note//whaay
            titleList.text=note.textedit
-          // descriptioItem.text=note.description
-           descriptioItem.text=note.date.toString()
+           descriptioItem.text=note.description
+           dateList.text=note.date.toString()
            isDoneImg.visibility=if (note.isDone){
                View.VISIBLE
            }else{
