@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolist.Database.ToDoData
 import com.example.todolist.R
 import com.example.todolist.addList.AddListFragment
+import com.example.todolist.theList.KEY_ID
 import com.example.todolist.theList.theListFragment
 
 
@@ -29,15 +31,20 @@ class StartFragment : Fragment() {
         addLBTN= view.findViewById(R.id.AddListBTN)
         listBTN=view.findViewById(R.id.LIstBTN)
 
+
     return view
 
     }
 
     override fun onStart() {
+
+
         super.onStart()
-        val fragment=AddListFragment()
-        val fragmentList=theListFragment()
+
         addLBTN.setOnClickListener {
+
+            val fragment= AddListFragment()
+
             activity?.let {
                 it.supportFragmentManager
                 .beginTransaction()
@@ -48,6 +55,8 @@ class StartFragment : Fragment() {
         }
 
         listBTN.setOnClickListener {
+
+            val fragmentList = theListFragment()
 
             activity?.let {
                 it.supportFragmentManager

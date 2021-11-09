@@ -1,4 +1,4 @@
-package com.example.todolist.addList
+package com.example.todolist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,16 +8,15 @@ import com.example.todolist.Database.ToDoData
 import com.example.todolist.Database.ToDoRepo
 import java.util.*
 
+class EditFromListViewModel : ViewModel() {
 
-class AddListViewModel : ViewModel() {
 
-    private val noteRepo=ToDoRepo.get()
-    private val noteIdLiveData=MutableLiveData<UUID>()
+    private val noteRepo= ToDoRepo.get()
+    private val noteIdLiveData= MutableLiveData<UUID>()
 
-    var noteLiveData:LiveData<ToDoData?> = Transformations.switchMap(noteIdLiveData){
+    var noteLiveData: LiveData<ToDoData?> = Transformations.switchMap(noteIdLiveData) {
         noteRepo.getlistById(it)
     }
-
     fun saveUpdate(note:ToDoData){
         noteRepo.updateList(note)
     }
@@ -28,10 +27,7 @@ class AddListViewModel : ViewModel() {
     fun addtodo(note: ToDoData){
         noteRepo.insertList(note)
     }
-//     fun deleteToDo(note: ToDoData){
-//         noteRepo.deleteList(note)
-//     }
-
-
-
+    fun deleteToDo(note: ToDoData){
+        noteRepo.deleteList(note)
+    }
 }

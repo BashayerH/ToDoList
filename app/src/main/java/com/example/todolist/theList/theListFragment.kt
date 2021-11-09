@@ -6,26 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.Database.ToDoData
+import com.example.todolist.EditFromListFragment
 import com.example.todolist.R
+import com.example.todolist.addList.AddListFragment
+import com.example.todolist.addList.AddListViewModel
+import java.util.*
 
 const val KEY_ID="note_id"
+
 class theListFragment : Fragment() {
 
    private lateinit var theListRC:RecyclerView
 
-val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewModel::class.java)}
+private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewModel::class.java)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
     }
 
     override fun onCreateView(
@@ -55,20 +59,39 @@ val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewModel::cla
 
     private inner class ViewHolderList(view: View):RecyclerView.ViewHolder(view),View.OnClickListener{
         private var titleList:TextView=itemView.findViewById(R.id.title_item)
-        private var isDone:CheckBox=itemView.findViewById(R.id.is_Done_item)
-        private var descriptio:TextView=itemView.findViewById(R.id.descrep_item)
-       private lateinit var toDo:ToDoData
-
-       fun bind(toDo:ToDoData){
-           this.toDo=toDo//whaay
-           titleList.text=toDo.textedit
-           isDone.text=toDo.isDone.toString()
-          // descriptio.text=toDo.date.toString()
+        private var isDoneImg:ImageView=itemView.findViewById(R.id.is_Done_item)
+        private var descriptioItem:TextView=itemView.findViewById(R.id.descrep_item)
+       private lateinit var note:ToDoData
+//هنا عندي مشكلة بطريقة عرض البيانات
+       fun bind(note:ToDoData){
+           this.note=note//whaay
+           titleList.text=note.textedit
+          // descriptioItem.text=note.description
+           descriptioItem.text=note.date.toString()
+           isDoneImg.visibility=if (note.isDone){
+               View.VISIBLE
+           }else{
+               View.GONE
+           }
        }
-
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         override fun onClick(p0: View?) {
-
+            if (p0==itemView){
+                val arg=Bundle()
+                arg.putSerializable(KEY_ID,note.id)
+               val fragment= EditFromListFragment()
+                fragment.arguments=arg
+                activity?.let {
+                    it.supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView,fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+            }
         }
 
     }

@@ -6,34 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E4DA"
-    android:backgroundTint="#C5D4DA"
+    android:backgroundTint="#F8E2E4"
     android:orientation="vertical"
     tools:context=".addList.AddListFragment">
 
     <TextView
         android:id="@+id/addNote"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="43dp"
+        android:layout_width="254dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="76dp"
         android:background="#EEF3F4"
-        android:backgroundTint="#C5D4DA"
+        android:backgroundTint="#F9E2E4"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="@string/add_the_note"
         android:textAlignment="center"
-        android:textColor="#572830"
+        android:textColor="#592630"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editeNote"
-        app:layout_constraintEnd_toEndOf="@+id/editeNote"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editeNote"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="278dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="#F6EDED"
         android:ems="10"
         android:fontFamily="@font/architects_daughter_regular"
@@ -42,22 +40,20 @@
         android:textAlignment="center"
         android:textColor="#572830"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editDecs"
-        app:layout_constraintEnd_toEndOf="@+id/editDecs"
         app:layout_constraintStart_toStartOf="@+id/isDone"
         app:layout_constraintTop_toBottomOf="@+id/addNote" />
 
     <Button
         android:id="@+id/dateBTN"
-        android:layout_width="156dp"
-        android:layout_height="70dp"
+        android:layout_width="166dp"
+        android:layout_height="71dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="232dp"
-        android:backgroundTint="#4B5B60"
+        android:backgroundTint="#E0515C"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="@string/date"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -67,7 +63,7 @@
         android:layout_height="73dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="232dp"
-        android:backgroundTint="#4B5B60"
+        android:backgroundTint="#E0515C"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="@string/added_to_list"
         android:textColor="@color/white"
@@ -76,33 +72,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editDecs"
-        android:layout_width="292dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="91dp"
-        android:backgroundTint="#F1ECEC"
-        android:ems="10"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:textColor="#572830"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/dateBTN"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editeNote"
-        tools:hint="@string/descerption" />
-
     <CheckBox
         android:id="@+id/isDone"
-        android:layout_width="121dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="340dp"
+        android:layout_width="266dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="368dp"
+        android:fontFamily="@font/architects_daughter_regular"
         android:text="isDone"
+        android:textAlignment="center"
+        android:textColor="#582730"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/descrItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import java.util.concurrent.Executors
 
 private const val  NAME_OF_DATABASE= "database_name"
 
-class ToDoRepo(context: Context) {
+class ToDoRepo private constructor(context: Context) {
 
     private val database: ToDoDatabase = Room.databaseBuilder(
         context.applicationContext,

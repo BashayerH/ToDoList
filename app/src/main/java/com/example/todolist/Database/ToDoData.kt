@@ -10,6 +10,7 @@ data class ToDoData(
     @PrimaryKey val id:UUID=UUID.randomUUID(),
     var textedit:String=" ",
     var date:Date =Date(),
+    var description:String=" ",
     var isDone:Boolean=false
 )
 

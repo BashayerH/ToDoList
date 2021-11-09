@@ -15,6 +15,8 @@ interface ToDoDAO {
   @Query("SELECT*FROM ToDoData WHERE id =(:id)")
    fun getlistById(id:UUID):LiveData<ToDoData?>
 
+
+
    @Update
    fun updateList(note:ToDoData)
 
@@ -23,4 +25,6 @@ interface ToDoDAO {
 
    @Delete
    fun deleteList(note: ToDoData)
+
+
 }

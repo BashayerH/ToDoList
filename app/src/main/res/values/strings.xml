@@ -7,8 +7,15 @@
     <string name="helloText">To Do List</string>
     <string name="add_the_note">add the note here</string>
     <string name="what_do_you_want_to_do">what do you want to do</string>
-    <string name="date">Date</string>
+    <string name="date">Set a Date</string>
     <string name="added_to_list">added to list</string>
-    <string name="descerption">descerption</string>
     <string name="done">Done</string>
+    <string name="delete">DELETE</string>
+    <string name="title">title</string>
+    <string name="nameTitle">Name33</string>
+    <string name="descerption">descerption</string>
+    <string name="name">Name</string>
+    <string name="edit">edit</string>
+    <string name="change_date">change date</string>
+    <string name="end">end</string>
 </resources>
