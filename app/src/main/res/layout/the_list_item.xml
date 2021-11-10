@@ -18,44 +18,60 @@
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
         android:textColor="#C9C5BA"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descrep_item"
-        android:layout_width="163dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="249dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
         android:textColor="#C9C5BA"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/is_Done_item"
-        android:layout_width="386dp"
-        android:layout_height="127dp"
-        android:background="#79100F0F"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shadow" />
 
     <Button
         android:id="@+id/date_for_list"
         android:layout_width="131dp"
         android:layout_height="56dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#36572830"
-        android:text="date"
+        android:text="check for date"
         android:textColor="#C9C5BA"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/creat_on"
+        android:layout_width="121dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/architects_daughter_regular"
+        android:text="Creat on :"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/descrep_item"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/is_Done_item"
+        android:layout_width="205dp"
+        android:layout_height="100dp"
+        android:rotation="206"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41"
+        app:srcCompat="@drawable/scratch22" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

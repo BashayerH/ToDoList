@@ -8,14 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import com.example.todolist.DataPickerFragment
 import com.example.todolist.Database.ToDoData
 import com.example.todolist.R
-import com.example.todolist.theList.KEY_ID
 import com.example.todolist.theList.theListFragment
 import java.util.*
 
@@ -46,8 +43,8 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
 
 //        dateBTn.apply {
-//            text=note.date.toString()//whaaaay
-//        }
+//            text=note.duoDate.toString()//whaaaay
+//       }
 
 
         return view
@@ -82,24 +79,33 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
 
     val textWatcher=object :TextWatcher{
+
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-
         }
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             note.textedit= p0.toString()//howww
-            note.description=p0.toString()
         }
-
-
         override fun afterTextChanged(p0: Editable?) {
-
         }
-
     }
         textEdit.addTextChangedListener(textWatcher)
-       descreptionEdit.addTextChangedListener(textWatcher)
+
+        val descrWatcher=object :TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                note.description=p0.toString()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        }
+       descreptionEdit.addTextChangedListener(descrWatcher)
 
 
 
@@ -127,7 +133,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
                     note=it
                     textEdit.setText(it.textedit)
                     descreptionEdit.setText(it.description)
-                    dateBTn.visibility= it.date.time.toInt()
+                    dateBTn.visibility= it.duoDate!!.time.toInt()
 
 
                 }
@@ -138,7 +144,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
     }
 
     override fun onDateSelected(date: Date) {
-        note.date=date
+        note.duoDate=date
         dateBTn.visibility=date.time.toInt()
     }
 

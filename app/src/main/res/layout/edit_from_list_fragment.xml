@@ -40,58 +40,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/editBTn"
-            android:layout_width="381dp"
-            android:layout_height="54dp"
-            android:layout_marginBottom="204dp"
-            android:backgroundTint="#407076"
-            android:text="@string/edit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/deleteBtn"
-            android:layout_width="383dp"
-            android:layout_height="56dp"
-            android:layout_marginBottom="136dp"
-            android:backgroundTint="#407076"
-            android:text="Delete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.447"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/startDate"
-            android:layout_width="379dp"
-            android:layout_height="54dp"
-            android:layout_marginBottom="264dp"
-            android:backgroundTint="#407076"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/change_date" />
-
-        <Button
-            android:id="@+id/endBTn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:backgroundTint="#407076"
-            android:text="@string/end"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <CheckBox
             android:id="@+id/isDone"
             android:layout_width="272dp"
             android:layout_height="58dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/architects_daughter_regular"
             android:text="is Done"
             android:textAlignment="center"
@@ -100,6 +53,41 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_desc_title" />
+
+        <Button
+            android:id="@+id/editBTn"
+            android:layout_width="381dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="160dp"
+            android:backgroundTint="#407076"
+            android:text="@string/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="383dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="96dp"
+            android:backgroundTint="#407076"
+            android:text="Delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/startDate"
+            android:layout_width="379dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="232dp"
+            android:backgroundTint="#407076"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/change_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

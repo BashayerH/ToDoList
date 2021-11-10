@@ -2,6 +2,7 @@ package com.example.todolist.Database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 import java.util.*
 
 
@@ -9,9 +10,10 @@ import java.util.*
 data class ToDoData(
     @PrimaryKey val id:UUID=UUID.randomUUID(),
     var textedit:String=" ",
-    var date:Date =Date(),
+    var duoDate:Date? =null,
     var description:String=" ",
-    var isDone:Boolean=false
+    var isDone:Boolean=false,
+    var  date: Date
 )
 
 

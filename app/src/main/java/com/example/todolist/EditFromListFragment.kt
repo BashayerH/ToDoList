@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.TextView
 import com.example.todolist.Database.ToDoData
 import com.example.todolist.addList.KEY_FOR_DATE
 import com.example.todolist.theList.KEY_ID
@@ -45,7 +44,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
         isDone=view.findViewById(R.id.isDone)
 
         editDate.apply {
-            text= note.date.time.toString()//whaaaay
+            text= note.duoDate.toString()//whaaaay
       }
 
 
@@ -71,7 +70,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
         editDate.setOnClickListener {
             val args = Bundle()
-            args.putSerializable(KEY_FOR_DATE, note.date)
+            args.putSerializable(KEY_FOR_DATE, note.duoDate)
             val datePicker = DataPickerFragment()
             datePicker.arguments = args
             datePicker.setTargetFragment(this, 0)
@@ -79,7 +78,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
         }
 
         editBTn.setOnClickListener{
-            editFragmentVm.addtodo(note)
+            editFragmentVm.saveUpdate(note)
             val fragment= theListFragment()
             activity?.let {
                 it.supportFragmentManager
@@ -99,7 +98,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 note.textedit= p0.toString()
-                note.description=p1.toString()// ايش الفرق ؟؟؟؟
+               // note.description=p1.toString()// ايش الفرق ؟؟؟؟
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -123,8 +122,8 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
                 it?.let {
                     note=it
                     editTitle.setText(it.textedit)
-                    editDescr.setText(it.description)
-                    editDate.text= it.date.time.toString()
+                    editDescr.setText(it.duoDate.toString())
+                    editDate.text= it.duoDate.toString()
                    isDone.isChecked= it.isDone
 
                 }
@@ -152,7 +151,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
     }
 
     override fun onDateSelected(date: Date) {//وااااي
-        note.date=date
+        note.duoDate=date
         editDate.text=date.toString()
     }
 

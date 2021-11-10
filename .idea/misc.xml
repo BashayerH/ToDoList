@@ -17,6 +17,8 @@
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_the_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/the_list_item.xml" value="0.335" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/menu_fragment.xml" value="0.1875" />
       </map>
     </option>
   </component>

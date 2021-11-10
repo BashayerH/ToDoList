@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8E4DA"
-    android:backgroundTint="#F8F4F4"
+    android:backgroundTint="#FFFFFF"
     android:orientation="vertical"
     tools:context=".addList.AddListFragment">
 
@@ -30,9 +30,9 @@
 
     <EditText
         android:id="@+id/editeNote"
-        android:layout_width="369dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="450dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="324dp"
         android:backgroundTint="#F6EDED"
         android:ems="10"
         android:fontFamily="@font/architects_daughter_regular"
@@ -41,36 +41,21 @@
         android:textAlignment="center"
         android:textColor="#407076"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/descrItem"
-        android:layout_width="372dp"
-        android:layout_height="189dp"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:hint="description"
-        android:inputType="textPersonName"
-        android:textColor="#407076"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="411dp"
-        android:layout_height="313dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="409dp"
+        android:layout_height="312dp"
         android:background="@drawable/add_list_corner"
-        android:backgroundTint="#F8F4F4"
+        android:backgroundTint="#97B1A6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
@@ -95,5 +80,25 @@
             app:layout_constraintVertical_bias="0.475" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="411dp"
+        android:layout_height="217dp"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNote" />
+
+    <EditText
+        android:id="@+id/descrItem"
+        android:layout_width="16dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
