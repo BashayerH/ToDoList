@@ -20,6 +20,7 @@ import java.util.*
 
 const val KEY_ID="note_id"
 
+const val dateFormat="dd/MM/yyyy"
 
 class theListFragment : Fragment() {
 
@@ -95,18 +96,21 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
     private inner class ViewHolderList(view: View):RecyclerView.ViewHolder(view),View.OnClickListener{
         private var titleList:TextView=itemView.findViewById(R.id.title_item)
         private var isDoneImg:ImageView=itemView.findViewById(R.id.is_Done_item)
-        private var descriptioItem:TextView=itemView.findViewById(R.id.descrep_item)
+       // private var descriptioItem:TextView=itemView.findViewById(R.id.descrep_item)
         private var dateB:Button =itemView.findViewById(R.id.date_for_list)
+        private var creatText:TextView= itemView.findViewById(R.id.creatON)
 
 
        private lateinit var note:ToDoData
+
 //هنا عندي مشكلة بطريقة عرض البيانات
        fun bind(note:ToDoData){
-    var  date:DateTimeFormatter? =DateTimeFormatter.ofPattern("yyyy-MM-dd")
+
            this.note=note//whaay
            titleList.text=note.textedit
-           descriptioItem.text=note.date.toString()
+          // descriptioItem.text=android.text.format.DateFormat.format(dateFormat,note.date)
            // descriptioItem.text=note.description
+            creatText.text=android.text.format.DateFormat.format(dateFormat,note.date)
 
             dateB.setOnClickListener {
                 if (note.duoDate != null) {

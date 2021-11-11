@@ -2,7 +2,6 @@ package com.example.todolist.Database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.LocalDate
 import java.util.*
 
 
@@ -13,7 +12,7 @@ data class ToDoData(
     var duoDate:Date? =null,
     var description:String=" ",
     var isDone:Boolean=false,
-    var  date: Date
+    var date: Date=Date()
 )
 
 

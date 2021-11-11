@@ -14,25 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
         android:textColor="#C9C5BA"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/descrep_item"
-        android:layout_width="249dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/architects_daughter_regular"
-        android:text="TextView"
-        android:textColor="#C9C5BA"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,28 +37,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/creat_on"
+        android:id="@+id/creat"
         android:layout_width="121dp"
         android:layout_height="20dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="Creat on :"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/descrep_item"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_item" />
 
     <ImageView
         android:id="@+id/is_Done_item"
-        android:layout_width="205dp"
-        android:layout_height="100dp"
-        android:rotation="206"
+        android:layout_width="229dp"
+        android:layout_height="107dp"
+        android:rotation="176"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41"
         app:srcCompat="@drawable/scratch22" />
+
+    <TextView
+        android:id="@+id/creatON"
+        android:layout_width="171dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/architects_daughter_regular"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#553A3F"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creat"
+        app:layout_constraintVertical_bias="0.227" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

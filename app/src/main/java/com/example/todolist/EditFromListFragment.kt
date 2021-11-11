@@ -1,19 +1,20 @@
 package com.example.todolist
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
+import android.widget.*
 import com.example.todolist.Database.ToDoData
 import com.example.todolist.addList.KEY_FOR_DATE
 import com.example.todolist.theList.KEY_ID
+import com.example.todolist.theList.dateFormat
 import com.example.todolist.theList.theListFragment
 import java.util.*
 
@@ -25,9 +26,16 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
     private lateinit var editTitle: EditText
     private lateinit var editDescr: EditText
-    private lateinit var editBTn: Button
-    private lateinit var deleteBtn: Button
-    private lateinit var editDate: Button
+    private lateinit var editBTn: TextView
+    private lateinit var editImg:ImageView
+    private lateinit var deleteBtn: TextView
+    private lateinit var deletImg:ImageView
+    private lateinit var editDate: TextView
+    private lateinit var changDateImg:ImageView
+    private lateinit var share:TextView
+    private lateinit var shareImg:ImageView
+    private lateinit var creatDate:TextView
+    private lateinit var douDateEnd:TextView
     private lateinit var isDone: CheckBox
 
     override fun onCreateView(
@@ -36,26 +44,75 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
     ): View? {
         val view = inflater.inflate(R.layout.edit_from_list_fragment, container, false)
 
-        editTitle = view.findViewById(R.id.edit_title)
-        editDescr = view.findViewById(R.id.edit_desc_title)
-        editBTn = view.findViewById(R.id.editBTn)
-        deleteBtn = view.findViewById(R.id.deleteBtn)
-        editDate = view.findViewById(R.id.startDate)
-        isDone=view.findViewById(R.id.isDone)
+        initBTN(view)
 
-        editDate.apply {
+        douDateEnd.apply {
             text= note.duoDate.toString()//whaaaay
       }
+        creatDate.apply {
+            text=android.text.format.DateFormat.format(dateFormat,note.date)
+        }
 
 
         return view
     }
 
+     private fun shareBTN():String{
+
+        val solvedString =if (note.isDone){
+            "I complete the task"
+        }else{
+            "not complete ,yet."
+        }
+
+        val dateString = DateFormat.format(dateFormat,note.duoDate)
+
+//        val suspectString = if (crime.suspected.isBlank()){
+//            "there is no any suspect"
+//        }else{
+//            "the suspect is ${crime.suspected}"
+//       }
+        return "$solvedString and the date of the crime is $dateString  "
+    }
+
+
+
+    private fun initBTN(view: View) {
+        editTitle = view.findViewById(R.id.edit_title)
+        editDescr = view.findViewById(R.id.edit_desc_title)
+        editBTn = view.findViewById(R.id.editBTn)
+        editImg = view.findViewById(R.id.edit_img)
+        deleteBtn = view.findViewById(R.id.deleteBtn)
+        deletImg = view.findViewById(R.id.delet_img)
+        editDate = view.findViewById(R.id.changeDate)
+        changDateImg = view.findViewById(R.id.change_date_img)
+        share = view.findViewById(R.id.shareText)
+        shareImg = view.findViewById(R.id.share_img)
+        creatDate = view.findViewById(R.id.the_creat_date)
+        douDateEnd = view.findViewById(R.id.the_due_date)
+        isDone = view.findViewById(R.id.isDone)
+    }
+
     override fun onStart() {
         super.onStart()
 
-        deleteBtn.setOnClickListener {
 
+      shareImg.setOnClickListener {
+            Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT,shareBTN() )
+                putExtra(
+                    Intent.EXTRA_SUBJECT,
+                    " Report")
+            }.also {
+                val chooserIntent =
+                    Intent.createChooser(it," send_report")
+                startActivity(chooserIntent)
+            }
+
+        }
+
+        (deleteBtn );(deletImg).setOnClickListener {
             editFragmentVm.deleteToDo(note)
             val fragment = theListFragment()
             activity?.let {
@@ -64,11 +121,10 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
                     .replace(R.id.fragmentContainerView, fragment)
                     .addToBackStack(null)
                     .commit()
-
             }
         }
 
-        editDate.setOnClickListener {
+        (editDate);(changDateImg).setOnClickListener {
             val args = Bundle()
             args.putSerializable(KEY_FOR_DATE, note.duoDate)
             val datePicker = DataPickerFragment()
@@ -77,7 +133,7 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
             datePicker.show(this.parentFragmentManager, "date picker")
         }
 
-        editBTn.setOnClickListener{
+        (editBTn);(editImg).setOnClickListener{
             editFragmentVm.saveUpdate(note)
             val fragment= theListFragment()
             activity?.let {
@@ -92,23 +148,28 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
         val textWatcher=object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                note.textedit= p0.toString()
 
+            }
+            override fun afterTextChanged(p0: Editable?) {
+            } }
 
+        val descrWatcher=object :TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                note.textedit= p0.toString()
-               // note.description=p1.toString()// ايش الفرق ؟؟؟؟
+                note.description=p0.toString()
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
             }
-
         }
 
         editTitle.addTextChangedListener(textWatcher)
-        editDescr.addTextChangedListener(textWatcher)
+        editDescr.addTextChangedListener(descrWatcher)
        isDone.setOnCheckedChangeListener { _, isChecked ->note.isDone=isChecked  }
 
 
@@ -122,8 +183,10 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
                 it?.let {
                     note=it
                     editTitle.setText(it.textedit)
-                    editDescr.setText(it.duoDate.toString())
-                    editDate.text= it.duoDate.toString()
+                    editDescr.setText(it.description)
+                   // editDate.text= it.duoDate.toString()
+                    douDateEnd.setText(it.duoDate.toString())
+                    creatDate.setText(it.date.toString())
                    isDone.isChecked= it.isDone
 
                 }
@@ -151,10 +214,10 @@ class EditFromListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
     }
 
     override fun onDateSelected(date: Date) {//وااااي
-        note.duoDate=date
-        editDate.text=date.toString()
+       // note.duoDate=date
+       // editDate.text=date.toString()
+
     }
 
-
-
 }
+

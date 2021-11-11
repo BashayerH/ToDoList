@@ -17,6 +17,8 @@ import com.example.todolist.theList.theListFragment
 import java.util.*
 
 const val KEY_FOR_DATE="date key"
+const val dateFormat="dd/MM/yyyy"
+
 class AddListFragment : Fragment(),DataPickerFragment.DataPickerCallBack {
 
 private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::class.java) }
@@ -40,17 +42,11 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
         dateBTn=view.findViewById(R.id.dateBTN)
         adeddBTn=view.findViewById(R.id.addToList)
 
-
-
 //        dateBTn.apply {
 //            text=note.duoDate.toString()//whaaaay
 //       }
-
-
         return view
     }
-
-
     override fun onStart() {
         super.onStart()
 
@@ -93,21 +89,14 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
         val descrWatcher=object :TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 note.description=p0.toString()
             }
-
             override fun afterTextChanged(p0: Editable?) {
-
             }
-
         }
        descreptionEdit.addTextChangedListener(descrWatcher)
-
-
 
     }
 
@@ -145,6 +134,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
 
     override fun onDateSelected(date: Date) {
         note.duoDate=date
+
         dateBTn.visibility=date.time.toInt()
     }
 
