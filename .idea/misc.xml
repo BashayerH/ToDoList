@@ -12,6 +12,10 @@
         <entry key="app/src/main/res/font/allan.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/font/amatica_sc.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/font/annie_use_your_telescope.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/layout-land/add_list_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/edit_from_list_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_start.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/the_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_list_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/edit_from_list_fragment.xml" value="0.25" />

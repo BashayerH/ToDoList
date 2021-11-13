@@ -7,7 +7,7 @@ import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executors
 
-private const val  NAME_OF_DATABASE= "database_name"
+private const val NAME_OF_DATABASE = "database_name"
 
 class ToDoRepo private constructor(context: Context) {
 
@@ -34,28 +34,29 @@ class ToDoRepo private constructor(context: Context) {
         }
     }
 
-    fun insertList(note: ToDoData){
+    fun insertList(note: ToDoData) {
         executor.execute {
             noteDAO.insertList(note)
         }
     }
 
-    fun deleteList(note: ToDoData){
+    fun deleteList(note: ToDoData) {
         executor.execute {
             noteDAO.deleteList(note)
         }
     }
 
-    companion object{
-        var INSTANCE:ToDoRepo?=null
+    companion object {
+        var INSTANCE: ToDoRepo? = null
 
-        fun initialize(context: Context){
-            if(INSTANCE==null){
-                INSTANCE=ToDoRepo(context)
+        fun initialize(context: Context) {
+            if (INSTANCE == null) {
+                INSTANCE = ToDoRepo(context)
             }
         }
-        fun get():ToDoRepo{
-            return INSTANCE?: throw IllegalStateException("repo must be initialize")
+
+        fun get(): ToDoRepo {
+            return INSTANCE ?: throw IllegalStateException("repo must be initialize")
         }
     }
 }

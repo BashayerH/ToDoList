@@ -15,20 +15,20 @@ import com.example.todolist.EditFromList.EditFromListFragment
 import com.example.todolist.R
 import com.example.todolist.addList.AddListFragment
 
-const val KEY_ID="note_id"
+const val KEY_ID = "note_id"
 
-const val dateFormat="dd/MM/yyyy"
+const val dateFormat = "dd/MM/yyyy"
 
 class theListFragment : Fragment() {
 
-   private lateinit var theListRC:RecyclerView
+    private lateinit var theListRC: RecyclerView
 
-private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewModel::class.java)}
+    private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewModel::class.java) }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_fragment,menu)
+        inflater.inflate(R.menu.menu_fragment, menu)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,21 +38,26 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.new_task-> {
+        return when (item.itemId) {
+            R.id.new_task -> {
                 val note = ToDoData()
                 theListViewModel.insertList(note)
 
-                val args=Bundle()
-                args.putSerializable(KEY_ID,note.id)
-                val fragment =AddListFragment()
-                fragment.arguments=args
+                val args = Bundle()
+                args.putSerializable(KEY_ID, note.id)
+                val fragment = AddListFragment()
+                fragment.arguments = args
 
                 activity?.let {
                     it.supportFragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
-                        .replace(R.id.fragmentContainerView,fragment)
+                        .setCustomAnimations(
+                            R.anim.slide_in_right,
+                            R.anim.slid_out_left,
+                            R.anim.slide_out_right,
+                            R.anim.slied_in_left
+                        )
+                        .replace(R.id.fragmentContainerView, fragment)
                         .addToBackStack(null)
                         .commit()
                 }
@@ -71,11 +76,11 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
         savedInstanceState: Bundle?
     ): View? {
 
-        val view= inflater.inflate(R.layout.fragment_the_list,container,false)
+        val view = inflater.inflate(R.layout.fragment_the_list, container, false)
 
-        theListRC=view.findViewById(R.id.listRcView)
-        val linearLM=LinearLayoutManager(context)
-        theListRC.layoutManager=linearLM
+        theListRC = view.findViewById(R.id.listRcView)
+        val linearLM = LinearLayoutManager(context)
+        theListRC.layoutManager = linearLM
 
         return view
     }
@@ -83,30 +88,31 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         theListViewModel.noteLiveData.observe(
-            viewLifecycleOwner,Observer{
+            viewLifecycleOwner, Observer {
                 updatAdapter(it)
             }
         )
     }
 
-    private inner class ViewHolderList(view: View):RecyclerView.ViewHolder(view),View.OnClickListener{
-        private var titleList:TextView=itemView.findViewById(R.id.title_item)
-        private var isDoneImg:ImageView=itemView.findViewById(R.id.is_Done_item)
-       // private var descriptioItem:TextView=itemView.findViewById(R.id.descrep_item)
-        private var dateB:Button =itemView.findViewById(R.id.date_for_list)
-        private var creatText:TextView= itemView.findViewById(R.id.creatON)
+    private inner class ViewHolderList(view: View) : RecyclerView.ViewHolder(view),
+        View.OnClickListener {
+        private var titleList: TextView = itemView.findViewById(R.id.title_item)
+        private var isDoneImg: ImageView = itemView.findViewById(R.id.is_Done_item)
 
 
-       private lateinit var note:ToDoData
+        private var dateB: Button = itemView.findViewById(R.id.date_for_list)
+        private var creatText: TextView = itemView.findViewById(R.id.creatON)
 
-//هنا عندي مشكلة بطريقة عرض البيانات
-       fun bind(note:ToDoData){
 
-           this.note=note//whaay
-           titleList.text=note.textedit
-          // descriptioItem.text=android.text.format.DateFormat.format(dateFormat,note.date)
-           // descriptioItem.text=note.description
-            creatText.text=android.text.format.DateFormat.format(dateFormat,note.date)
+        private lateinit var note: ToDoData
+
+
+        fun bind(note: ToDoData) {
+
+            this.note = note//whaay
+            titleList.text = note.textedit
+
+            creatText.text = android.text.format.DateFormat.format(dateFormat, note.date)
 
             dateB.setOnClickListener {
                 if (note.duoDate != null) {
@@ -120,30 +126,35 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
                 }
             }
 
-           isDoneImg.visibility=if (note.isDone){
-               View.VISIBLE
-           }else{
-               View.GONE
-           }
-           }
+            isDoneImg.visibility = if (note.isDone) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
 
-           init {
+        init {
             itemView.setOnClickListener(this)
 
         }
 
 
         override fun onClick(p0: View?) {
-            if (p0==itemView){
-                val arg=Bundle()
-                arg.putSerializable(KEY_ID,note.id)
-               val fragment= EditFromListFragment()
-                fragment.arguments=arg
+            if (p0 == itemView) {
+                val arg = Bundle()
+                arg.putSerializable(KEY_ID, note.id)
+                val fragment = EditFromListFragment()
+                fragment.arguments = arg
                 activity?.let {
                     it.supportFragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
-                        .replace(R.id.fragmentContainerView,fragment)
+                        .setCustomAnimations(
+                            R.anim.slide_in_right,
+                            R.anim.slid_out_left,
+                            R.anim.slide_out_right,
+                            R.anim.slied_in_left
+                        )
+                        .replace(R.id.fragmentContainerView, fragment)
                         .addToBackStack(null)
                         .commit()
                 }
@@ -154,29 +165,29 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
     }
 
 
-    private inner class AdapterList(var note:List<ToDoData>):RecyclerView.Adapter<ViewHolderList>(){
+    private inner class AdapterList(var note: List<ToDoData>) :
+        RecyclerView.Adapter<ViewHolderList>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolderList {
-            val view =layoutInflater.inflate(R.layout.the_list_item,parent,false)
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderList {
+            val view = layoutInflater.inflate(R.layout.the_list_item, parent, false)
 
             return ViewHolderList(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolderList, position: Int) {
-            val toDo=note[position]
+            val toDo = note[position]
             holder.bind(toDo)
         }
 
-        override fun getItemCount(): Int= note.size
+        override fun getItemCount(): Int = note.size
 
     }
-    private fun updatAdapter(note: List<ToDoData>){
-        val adapterList=AdapterList(note)
 
-        theListRC.adapter=adapterList
+    private fun updatAdapter(note: List<ToDoData>) {
+        val adapterList = AdapterList(note)
+
+        theListRC.adapter = adapterList
     }
-
-
 
 
 }

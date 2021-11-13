@@ -18,24 +18,23 @@ import com.example.todolist.theList.theListFragment
 class StartFragment : Fragment() {
 
 
-    private lateinit var addLBTN:Button
-    private lateinit var listBTN:Button
+    private lateinit var addLBTN: Button
+    private lateinit var listBTN: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view=inflater.inflate(R.layout.fragment_start,container,false)
+        val view = inflater.inflate(R.layout.fragment_start, container, false)
 
-        addLBTN= view.findViewById(R.id.AddListBTN)
-        listBTN=view.findViewById(R.id.LIstBTN)
+        addLBTN = view.findViewById(R.id.AddListBTN)
+        listBTN = view.findViewById(R.id.LIstBTN)
 
 
-    return view
+        return view
 
     }
-
 
 
     override fun onStart() {
@@ -44,15 +43,21 @@ class StartFragment : Fragment() {
 
         addLBTN.setOnClickListener {
 
-            val fragment= AddListFragment()
+            val fragment = AddListFragment()
 
             activity?.let {
                 it.supportFragmentManager
-                .beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_in_right,R.anim.slied_in_left)
-                .replace(R.id.fragmentContainerView,fragment)
-                .addToBackStack(null)
-                .commit()  }
+                    .beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.slide_in_right,
+                        R.anim.slid_out_left,
+                        R.anim.slide_in_right,
+                        R.anim.slied_in_left
+                    )
+                    .replace(R.id.fragmentContainerView, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
 
         }
 
@@ -63,12 +68,18 @@ class StartFragment : Fragment() {
             activity?.let {
                 it.supportFragmentManager
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_in_right,R.anim.slied_in_left)
-                    .replace(R.id.fragmentContainerView,fragmentList)
+                    .setCustomAnimations(
+                        R.anim.slide_in_right,
+                        R.anim.slid_out_left,
+                        R.anim.slide_in_right,
+                        R.anim.slied_in_left
+                    )
+                    .replace(R.id.fragmentContainerView, fragmentList)
                     .addToBackStack(null)
-                    .commit()  }
+                    .commit()
+            }
         }
     }
 
 
-    }
+}

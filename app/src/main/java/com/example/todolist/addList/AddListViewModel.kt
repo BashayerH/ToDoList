@@ -11,27 +11,24 @@ import java.util.*
 
 class AddListViewModel : ViewModel() {
 
-    private val noteRepo=ToDoRepo.get()
-    private val noteIdLiveData=MutableLiveData<UUID>()
+    private val noteRepo = ToDoRepo.get()
+    private val noteIdLiveData = MutableLiveData<UUID>()
 
-    var noteLiveData:LiveData<ToDoData?> = Transformations.switchMap(noteIdLiveData){
+    var noteLiveData: LiveData<ToDoData?> = Transformations.switchMap(noteIdLiveData) {
         noteRepo.getlistById(it)
     }
 
-    fun saveUpdate(note:ToDoData){
+    fun saveUpdate(note: ToDoData) {
         noteRepo.updateList(note)
     }
 
-    fun loadToDoList(noteId:UUID){
-        noteIdLiveData.value=noteId
+    fun loadToDoList(noteId: UUID) {
+        noteIdLiveData.value = noteId
     }
-    fun addtodo(note: ToDoData){
+
+    fun addtodo(note: ToDoData) {
         noteRepo.insertList(note)
     }
-//     fun deleteToDo(note: ToDoData){
-//         noteRepo.deleteList(note)
-//     }
-
 
 
 }
