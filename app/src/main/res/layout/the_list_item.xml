@@ -29,7 +29,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#36572830"
+        android:backgroundTint="#2C572830"
         android:text="check for date"
         android:textColor="#C9C5BA"
         android:textSize="12sp"
@@ -50,16 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_item" />
 
-    <ImageView
-        android:id="@+id/is_Done_item"
-        android:layout_width="229dp"
-        android:layout_height="107dp"
-        android:rotation="176"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/scratch22" />
-
     <TextView
         android:id="@+id/creatON"
         android:layout_width="171dp"
@@ -74,5 +64,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/creat"
         app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/is_Done_item"
+        android:layout_width="376dp"
+        android:layout_height="102dp"
+        android:background="@drawable/bg_corner"
+        android:backgroundTint="#B7131212"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/checked" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

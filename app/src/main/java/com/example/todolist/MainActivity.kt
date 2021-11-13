@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
             val fragment = StartFragment()
             supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
                 .add(R.id.fragmentContainerView, fragment)
                 .commit()
         }

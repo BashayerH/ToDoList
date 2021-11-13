@@ -10,13 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.DataPickerFragment
 import com.example.todolist.Database.ToDoData
-import com.example.todolist.EditFromListFragment
+import com.example.todolist.EditFromList.EditFromListFragment
 import com.example.todolist.R
 import com.example.todolist.addList.AddListFragment
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 const val KEY_ID="note_id"
 
@@ -54,6 +51,7 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
                 activity?.let {
                     it.supportFragmentManager
                         .beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
                         .replace(R.id.fragmentContainerView,fragment)
                         .addToBackStack(null)
                         .commit()
@@ -78,8 +76,6 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
         theListRC=view.findViewById(R.id.listRcView)
         val linearLM=LinearLayoutManager(context)
         theListRC.layoutManager=linearLM
-
-
 
         return view
     }
@@ -124,8 +120,6 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
                 }
             }
 
-
-
            isDoneImg.visibility=if (note.isDone){
                View.VISIBLE
            }else{
@@ -148,6 +142,7 @@ private val theListViewModel by lazy { ViewModelProvider(this).get(TheListViewMo
                 activity?.let {
                     it.supportFragmentManager
                         .beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
                         .replace(R.id.fragmentContainerView,fragment)
                         .addToBackStack(null)
                         .commit()

@@ -66,6 +66,7 @@ private val addListFrVM by lazy { ViewModelProvider(this).get(AddListViewModel::
             activity?.let {
                 it.supportFragmentManager
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_out_right,R.anim.slied_in_left)
                     .replace(R.id.fragmentContainerView, fragment)
                     .addToBackStack(null)
                     .commit()

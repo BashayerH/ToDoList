@@ -36,8 +36,9 @@ class StartFragment : Fragment() {
 
     }
 
-    override fun onStart() {
 
+
+    override fun onStart() {
 
         super.onStart()
 
@@ -48,6 +49,7 @@ class StartFragment : Fragment() {
             activity?.let {
                 it.supportFragmentManager
                 .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_in_right,R.anim.slied_in_left)
                 .replace(R.id.fragmentContainerView,fragment)
                 .addToBackStack(null)
                 .commit()  }
@@ -61,12 +63,12 @@ class StartFragment : Fragment() {
             activity?.let {
                 it.supportFragmentManager
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right,R.anim.slid_out_left,R.anim.slide_in_right,R.anim.slied_in_left)
                     .replace(R.id.fragmentContainerView,fragmentList)
                     .addToBackStack(null)
                     .commit()  }
         }
     }
-
 
 
     }
