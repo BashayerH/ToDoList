@@ -17,7 +17,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
-        android:textColor="#C9C5BA"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +25,8 @@
 
     <Button
         android:id="@+id/date_for_list"
-        android:layout_width="131dp"
-        android:layout_height="56dp"
+        android:layout_width="147dp"
+        android:layout_height="81dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#2C572830"
@@ -40,7 +40,7 @@
         android:id="@+id/creat"
         android:layout_width="121dp"
         android:layout_height="20dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="Creat on :"
@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/creatON"
-        android:layout_width="171dp"
-        android:layout_height="27dp"
+        android:layout_width="138dp"
+        android:layout_height="28dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/architects_daughter_regular"
         android:text="TextView"
@@ -74,9 +74,9 @@
         android:backgroundTint="#9F131212"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/checked" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
